@@ -1,1 +1,6 @@
-﻿/LEDMatrixAPI/bin/
+﻿/API/bin/
+/API/obj/
+/IconsAndFonts/bin/
+/IconsAndFonts/obj/
+/Engine/bin/
+/Engine/obj/

@@ -4,7 +4,8 @@
     <e p="C:\Users\fkart\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\fkart\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_LEDMatrixAPI.1959144951.00" t="ExcludeRecursive" />
     <e p="C:\Users\fkart\RiderProjects\LEDMatrixAPI" t="IncludeFlat">
-      <e p="LEDMatrixAPI" t="IncludeRecursive">
+      <e p="API" t="IncludeRecursive">
+        <e p="API.csproj" t="IncludeRecursive" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -12,11 +13,10 @@
           <e p="MessageController.cs" t="Include" />
           <e p="PowerController.cs" t="Include" />
         </e>
-        <e p="LEDMatrixAPI.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="LEDMatrixAPI.AssemblyInfo.cs" t="Include" />
+              <e p="API.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -26,8 +26,7 @@
         </e>
         <e p="Startup.cs" t="Include" />
       </e>
-      <e p="LEDMatrixAPI.sln" t="IncludeFlat" />
-      <e p="LEDMatrixEngine" t="IncludeRecursive">
+      <e p="Engine" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="BusinessLogic" t="Include">
           <e p="IMessageDrawer.cs" t="Include" />
@@ -37,15 +36,27 @@
           <e p="IMatrixConnector.cs" t="Include" />
           <e p="StaticConnector.cs" t="Include" />
         </e>
-        <e p="LEDMatrixEngine.csproj" t="IncludeRecursive" />
+        <e p="Engine.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="LEDMatrixEngine.AssemblyInfo.cs" t="Include" />
+              <e p="Engine.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
       </e>
+      <e p="IconsAndFonts" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IconsAndFonts.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="IconsAndFonts.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="LEDMatrixAPI.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
