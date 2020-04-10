@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\fkart\.Rider2019.3\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\fkart\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\fkart\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_LEDMatrixAPI.1959144951.00" t="ExcludeRecursive" />
     <e p="C:\Users\fkart\RiderProjects\LEDMatrixAPI" t="IncludeFlat">
       <e p="API" t="IncludeRecursive">
+        <e p=".dockerignore" t="Include" />
         <e p="API.csproj" t="IncludeRecursive" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
@@ -13,8 +15,9 @@
           <e p="MessageController.cs" t="Include" />
           <e p="PowerController.cs" t="Include" />
         </e>
+        <e p="Dockerfile" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="API.AssemblyInfo.cs" t="Include" />
             </e>
@@ -38,7 +41,7 @@
         </e>
         <e p="Engine.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Engine.AssemblyInfo.cs" t="Include" />
             </e>
@@ -49,7 +52,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="IconsAndFonts.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="IconsAndFonts.AssemblyInfo.cs" t="Include" />
             </e>
