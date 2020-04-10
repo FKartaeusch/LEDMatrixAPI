@@ -1,0 +1,8 @@
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\bin\Debug\netcoreapp3.1\LEDMatrixEngine.deps.json
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\bin\Debug\netcoreapp3.1\LEDMatrixEngine.dll
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\bin\Debug\netcoreapp3.1\LEDMatrixEngine.pdb
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\obj\Debug\netcoreapp3.1\LEDMatrixEngine.csprojAssemblyReference.cache
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\obj\Debug\netcoreapp3.1\LEDMatrixEngine.AssemblyInfoInputs.cache
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\obj\Debug\netcoreapp3.1\LEDMatrixEngine.AssemblyInfo.cs
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\obj\Debug\netcoreapp3.1\LEDMatrixEngine.dll
+C:\Users\fkart\RiderProjects\LEDMatrixAPI\LEDMatrixEngine\obj\Debug\netcoreapp3.1\LEDMatrixEngine.pdb
