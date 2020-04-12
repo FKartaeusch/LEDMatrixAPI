@@ -15,7 +15,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public bool Testing()
+        public bool TestConnection()
         {
             return _testConnector.TestConnection();
         }
