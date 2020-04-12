@@ -1,4 +1,5 @@
-﻿using System.Device.Spi;
+﻿using System;
+using System.Device.Spi;
 using System.Drawing;
 using System.Threading;
 using Iot.Device.Ws28xx;
@@ -32,10 +33,12 @@ namespace Engine.Core
 
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                throw ex;
             }
+
+            return false;
         }
     }
 }
