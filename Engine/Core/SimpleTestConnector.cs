@@ -15,9 +15,7 @@ namespace Engine.Core
                 var count = 256; // number of LEDs
                 var settings = new SpiConnectionSettings(0, 0)
                 {
-                    ClockFrequency = 2_400_000,
-                    Mode = SpiMode.Mode0,
-                    DataBitLength = 8
+                    ClockFrequency = 2_400_000, Mode = SpiMode.Mode0, DataBitLength = 8
                 };
 
                 var spi = SpiDevice.Create(settings);
