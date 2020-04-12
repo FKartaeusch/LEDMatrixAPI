@@ -7,14 +7,17 @@ namespace API.Controllers
     [Route("[controller]")]
     public class TestConnectionController : Controller
     {
+        private readonly ITestConnector _testConnector;
+
         public TestConnectionController(ITestConnector testConnector)
         {
-            testConnector.TestConnection();
+            _testConnector = testConnector;
         }
 
         [HttpGet]
-        public void Testing()
+        public bool Testing()
         {
+            return _testConnector.TestConnection();
         }
     }
 }

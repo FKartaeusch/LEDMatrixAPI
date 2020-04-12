@@ -14,7 +14,7 @@
         <e p="Controllers" t="Include">
           <e p="MessageController.cs" t="Include" />
           <e p="PowerController.cs" t="Include" />
-          <e p="TestConnection.cs" t="Include" />
+          <e p="TestConnectionController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
         <e p="obj" t="ExcludeRecursive">
