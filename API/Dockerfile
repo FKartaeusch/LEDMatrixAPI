@@ -1,4 +1,5 @@
-﻿FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+﻿# Build for testing on local machine
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 
 WORKDIR /app
 
