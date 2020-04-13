@@ -21,21 +21,37 @@ namespace Engine.Core
 
                 var spi = SpiDevice.Create(settings);
                 var device = new Ws2812b(spi, count);
-
-                var image = device.Image;
-                image.Clear();
-
-                var icon = new HeartIcon(Color.Crimson);
-                foreach (var pixel in icon.Pixels) image.SetPixel(pixel.x, pixel.y, pixel.color);
-                device.Update();
-                Thread.Sleep(5000);
-                image.Clear();
-                device.Update();
+                DrawTest(device);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+
+        private void DrawTest(Ws2812b device)
+        {
+            var image = device.Image;
+            image.Clear();
+
+            var heart = new HeartIcon(Color.FromArgb(0, Color.Crimson));
+            var b = 1;
+            while (b > 0)
+            {
+                heart.UpdateColor(Color.FromArgb(b, Color.Crimson));
+                foreach (var pixel in heart.Pixels) image.SetPixel(pixel.x, pixel.y, pixel.color);
+                image.SetPixel(0, 0, Color.FromArgb(0xff, b, b, b));
+                device.Update();
+                Thread.Sleep(10);
+                if (b < 150)
+                    b++;
+                else
+                    b--;
+            }
+
+            image.Clear();
+            device.Update();
         }
     }
 }

@@ -43,6 +43,11 @@ namespace IconsAndFonts.Icons
             Pixels.Add(new PixelInformation
             {
                 color = color,
+                x = 48
+            });
+            Pixels.Add(new PixelInformation
+            {
+                color = color,
                 x = 51
             });
             Pixels.Add(new PixelInformation

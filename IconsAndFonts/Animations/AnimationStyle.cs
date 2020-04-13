@@ -2,6 +2,10 @@
 {
     public enum AnimationStyle
     {
-        SIMPLE
+        SIMPLE,
+        BLINKING,
+        FADEIN,
+        FADEOUT,
+        FADEINANDOUT
     }
 }

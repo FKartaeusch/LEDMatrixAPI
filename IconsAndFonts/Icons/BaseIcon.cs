@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using IconsAndFonts.Animations;
 
 namespace IconsAndFonts.Icons
@@ -9,5 +10,10 @@ namespace IconsAndFonts.Icons
         public bool ClearAfter;
         public bool ClearBefore;
         public List<PixelInformation> Pixels;
+
+        public void UpdateColor(Color color)
+        {
+            Pixels.ForEach(p => p.color = color);
+        }
     }
 }
