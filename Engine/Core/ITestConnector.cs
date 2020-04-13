@@ -2,6 +2,6 @@
 {
     public interface ITestConnector
     {
-        public bool TestConnection();
+        public void TestConnection();
     }
 }

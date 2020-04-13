@@ -15,9 +15,9 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public bool TestConnection()
+        public void TestConnection()
         {
-            return _testConnector.TestConnection();
+            _testConnector.TestConnection();
         }
     }
 }

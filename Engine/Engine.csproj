@@ -9,4 +9,8 @@
         <PackageReference Include="System.Device.Gpio" Version="1.1.0-prerelease.20153.1"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\IconsAndFonts\IconsAndFonts.csproj"/>
+    </ItemGroup>
+
 </Project>

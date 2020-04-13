@@ -14,6 +14,7 @@
         <e p="Controllers" t="Include">
           <e p="MessageController.cs" t="Include" />
           <e p="PowerController.cs" t="Include" />
+          <e p="SinglePixelController.cs" t="Include" />
           <e p="TestConnectionController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
@@ -53,7 +54,15 @@
         </e>
       </e>
       <e p="IconsAndFonts" t="IncludeRecursive">
+        <e p="Animations" t="Include">
+          <e p="AnimationStyle.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Icons" t="Include">
+          <e p="BaseIcon.cs" t="Include" />
+          <e p="HeartIcon.cs" t="Include" />
+          <e p="PixelInformation.cs" t="Include" />
+        </e>
         <e p="IconsAndFonts.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Release" t="Include">

@@ -2,13 +2,14 @@
 using System.Device.Spi;
 using System.Drawing;
 using System.Threading;
+using IconsAndFonts.Icons;
 using Iot.Device.Ws28xx;
 
 namespace Engine.Core
 {
     public class SimpleTestConnector : ITestConnector
     {
-        public bool TestConnection()
+        public void TestConnection()
         {
             try
             {
@@ -23,20 +24,18 @@ namespace Engine.Core
 
                 var image = device.Image;
                 image.Clear();
-                image.SetPixel(0, 0, Color.Orange);
+
+                var icon = new HeartIcon(Color.Crimson);
+                foreach (var pixel in icon.Pixels) image.SetPixel(pixel.x, pixel.y, pixel.color);
                 device.Update();
                 Thread.Sleep(5000);
                 image.Clear();
-
-
-                return true;
+                device.Update();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
-            return false;
         }
     }
 }

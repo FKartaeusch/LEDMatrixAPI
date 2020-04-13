@@ -14,7 +14,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Users\\fkart\\RiderProjects\\LEDMatrixAPI\\IconsAndFonts\\IconsAndFonts.csproj": {
+            "projectPath": "C:\\Users\\fkart\\RiderProjects\\LEDMatrixAPI\\IconsAndFonts\\IconsAndFonts.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
