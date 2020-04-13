@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class SinglePixelController : Controller
     {
         private readonly IDrawSinglePixel Drawer;
@@ -15,10 +17,10 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public void Index(SinglePixelRequest request)
+        public void SinglePixel(SinglePixelRequest request)
         {
             var dto = new SinglePixelDTO();
-            dto.pixelNumber = request.pixelNumber;
+            dto.PixelNumber = request.PixelNumber;
             dto.AnimationStyle = request.AnimationStyle;
             dto.ClearImage = request.ClearImage;
             Drawer.Draw(dto);

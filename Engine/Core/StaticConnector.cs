@@ -4,13 +4,9 @@ using Iot.Device.Ws28xx;
 
 namespace Engine.Core
 {
-    public sealed class StaticConnector : IDeviceConnector
+    public class StaticConnector : IDeviceConnector
     {
         private static Ws2812b instance;
-
-        private StaticConnector()
-        {
-        }
 
         private Ws2812b Instance
         {
@@ -45,10 +41,11 @@ namespace Engine.Core
                 var spi = SpiDevice.Create(settings);
                 return new Ws2812b(spi, count);
             }
-            catch
+            catch (Exception ex)
             {
                 // Log error
-                throw new Exception("Error connecting to the LED matrix");
+                //throw new Exception("Error connecting to the LED matrix");
+                throw ex;
             }
         }
     }

@@ -25,7 +25,7 @@ namespace Engine.BusinessLogic
                 device.Update();
             }
 
-            image.SetPixel(pixelDTO.pixelNumber, 0, Color.Blue);
+            image.SetPixel(pixelDTO.PixelNumber, 0, Color.Blue);
             device.Update();
         }
 

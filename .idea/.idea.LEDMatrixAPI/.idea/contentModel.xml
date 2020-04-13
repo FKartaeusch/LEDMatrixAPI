@@ -24,7 +24,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="API.AssemblyInfo.cs" t="Include" />
             </e>
@@ -58,7 +58,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Engine.AssemblyInfo.cs" t="Include" />
             </e>
@@ -77,7 +77,7 @@
         </e>
         <e p="IconsAndFonts.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Release" t="Include">
+          <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="IconsAndFonts.AssemblyInfo.cs" t="Include" />
             </e>

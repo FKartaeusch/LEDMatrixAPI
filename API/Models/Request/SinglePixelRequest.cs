@@ -10,6 +10,6 @@ namespace API.Models.Request
         public AnimationStyle AnimationStyle = AnimationStyle.SIMPLE;
         public bool ClearImage = false;
         public Color Color = Color.Orange;
-        public int pixelNumber;
+        public int PixelNumber;
     }
 }
