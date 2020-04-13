@@ -1,49 +1,54 @@
 ﻿using System;
+using System.Device.Spi;
+using Iot.Device.Ws28xx;
 
 namespace Engine.Core
 {
-    public sealed class StaticConnector : IMatrixConnector
+    public sealed class StaticConnector : IDeviceConnector
     {
-        private static StaticConnector instance;
+        private static Ws2812b instance;
 
         private StaticConnector()
         {
         }
 
-        public static StaticConnector Instance
+        private Ws2812b Instance
         {
             get
             {
-                if (instance == null) instance = new StaticConnector();
+                if (instance == null)
+                {
+                    instance = CreateInstance();
+                }
+
 
                 return instance;
             }
         }
 
+        public Ws2812b GetDevice()
+        {
+            return Instance;
+        }
 
-        public void Connect()
+
+        private static Ws2812b CreateInstance()
         {
             try
             {
-                // connect to led matrix
-                // Log success?
+                var count = 256; // number of LEDs
+                var settings = new SpiConnectionSettings(0, 0)
+                {
+                    ClockFrequency = 2_400_000, Mode = SpiMode.Mode0, DataBitLength = 8
+                };
+
+                var spi = SpiDevice.Create(settings);
+                return new Ws2812b(spi, count);
             }
             catch
             {
                 // Log error
                 throw new Exception("Error connecting to the LED matrix");
-            }
-        }
-
-        public void Disconnect()
-        {
-            try
-            {
-                // disconnect
-            }
-            catch
-            {
-                throw new Exception("Error while disconnecting the LED matrix");
             }
         }
     }
