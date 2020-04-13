@@ -37,6 +37,7 @@ namespace Engine.Core
 
             var heart = new HeartIcon(Color.Crimson);
             var b = 1;
+            var fadeOut = false;
             while (b > 0)
             {
                 heart.UpdateColor(Color.FromArgb(b, Color.Crimson));
@@ -47,13 +48,17 @@ namespace Engine.Core
 
                 device.Update();
                 Thread.Sleep(10);
-                if (b < 150)
+                if (fadeOut)
                 {
-                    b++;
+                    b--;
                 }
                 else
                 {
-                    b--;
+                    b++;
+                    if (b == 150)
+                    {
+                        fadeOut = true;
+                    }
                 }
             }
 
