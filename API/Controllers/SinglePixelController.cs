@@ -17,11 +17,10 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public void SinglePixel(SinglePixelRequest request)
+        public void SinglePixel([FromBody] SinglePixelRequest request)
         {
             var dto = new SinglePixelDTO();
             dto.PixelNumber = request.PixelNumber;
-            dto.AnimationStyle = request.AnimationStyle;
             dto.ClearImage = request.ClearImage;
             Drawer.Draw(dto);
         }
