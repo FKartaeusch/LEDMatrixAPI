@@ -35,19 +35,26 @@ namespace Engine.Core
             var image = device.Image;
             image.Clear();
 
-            var heart = new HeartIcon(Color.FromArgb(0, Color.Crimson));
+            var heart = new HeartIcon(Color.Crimson);
             var b = 1;
             while (b > 0)
             {
                 heart.UpdateColor(Color.FromArgb(b, Color.Crimson));
-                foreach (var pixel in heart.Pixels) image.SetPixel(pixel.x, pixel.y, pixel.color);
-                image.SetPixel(0, 0, Color.FromArgb(0xff, b, b, b));
+                foreach (var pixel in heart.Pixels)
+                {
+                    image.SetPixel(pixel.x, pixel.y, Color.FromArgb(0xff, b, b, b));
+                }
+
                 device.Update();
                 Thread.Sleep(10);
                 if (b < 150)
+                {
                     b++;
+                }
                 else
+                {
                     b--;
+                }
             }
 
             image.Clear();
