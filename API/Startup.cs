@@ -22,7 +22,7 @@ namespace API
         {
             services.AddControllers();
             services.AddSingleton<IDeviceConnector, StaticConnector>();
-            services.AddSingleton<IDrawSinglePixel, IDrawSinglePixel>();
+            services.AddSingleton<IDrawSinglePixel, SinglePixelDrawer>();
             services.AddSingleton<ITestConnector, SimpleTestConnector>();
         }
 
