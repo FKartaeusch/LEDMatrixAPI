@@ -56,12 +56,13 @@ namespace Engine.Core.Connection
                     else
                     {
                         b++;
-                        if (b == 150)
+                        if (b == 120)
                         {
                             fadeOut = true;
                         }
                     }
                 }
+                Thread.Sleep(500);
             }
 
             image.Clear();
