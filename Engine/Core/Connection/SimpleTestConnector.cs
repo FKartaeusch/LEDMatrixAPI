@@ -63,10 +63,12 @@ namespace Engine.Core.Connection
                     }
                 }
                 Thread.Sleep(500);
+                fadeOut = false;
             }
 
             image.Clear();
             device.Update();
+            
         }
     }
 }
