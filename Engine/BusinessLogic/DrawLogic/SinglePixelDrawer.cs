@@ -21,12 +21,12 @@ namespace Engine.BusinessLogic.DrawLogic
         public void Draw(SinglePixelDTO pixelDTO)
         {
             var device = _connector.GetDevice();
-
+            var image = device.Image;
             var pixelAdress = _pixelPointer.GetDevicePixel(pixelDTO.PixelLocation);
             Console.WriteLine("Adressing Pixel " + pixelAdress);
-            device.Image.SetPixel(pixelAdress, 0, pixelDTO.Color);
-            device.Update();
+            image.SetPixel(pixelAdress, 0, pixelDTO.Color);
             Thread.Sleep(100);
+            device.Update();
         }
 
         public void Draw(PixelInformation pixel)
