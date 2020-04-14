@@ -16,8 +16,6 @@ namespace Engine.Core.Connection
                 {
                     instance = CreateInstance();
                 }
-
-
                 return instance;
             }
         }
@@ -38,7 +36,10 @@ namespace Engine.Core.Connection
                 };
 
                 var spi = SpiDevice.Create(settings);
-                return new Ws2812b(spi, count);
+                var device = new Ws2812b(spi, count);
+                device.Image.Clear();
+                device.Update();
+                return device;
             }
             catch (Exception ex)
             {

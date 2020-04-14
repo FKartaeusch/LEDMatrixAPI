@@ -26,7 +26,6 @@ namespace API
             services.AddControllers();
             services.AddSingleton<IDeviceConnector, StaticConnector>();
             services.AddSingleton<IDrawSinglePixel, SinglePixelDrawer>();
-            services.AddSingleton<IOldDrawSinglePixel, OldSinglePixelDrawer>();
             services.AddSingleton<ITestConnector, SimpleTestConnector>();
             services.AddSingleton<IStateHandler, SimpleStateHandler>();
             services.AddSingleton<IDeviceRunner, DeviceRunner>();
