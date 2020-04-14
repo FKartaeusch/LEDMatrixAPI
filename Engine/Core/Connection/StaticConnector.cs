@@ -4,7 +4,7 @@ using Iot.Device.Ws28xx;
 
 namespace Engine.Core.Connection
 {
-    public class StaticConnector : IDeviceConnector
+    public sealed class StaticConnector : IDeviceConnector
     {
         private static Ws2812b instance;
 
@@ -16,6 +16,8 @@ namespace Engine.Core.Connection
                 instance = CreateInstance();
             }
 
+            // Refresh connection?
+            instance.Update();
 
             return instance;
         }
