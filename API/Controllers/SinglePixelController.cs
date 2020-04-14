@@ -27,7 +27,7 @@ namespace API.Controllers
         {
             var dto = new SinglePixelDTO();
             dto.PixelLocation = new PixelLocationDTO {Row = request.Row, Col = request.Col};
-            dto.Color = Color.FromArgb(100, request.Red, request.Green, request.Blue);
+            dto.Color = Color.FromArgb(0xff, request.Red, request.Green, request.Blue);
             return dto;
         }
     }
