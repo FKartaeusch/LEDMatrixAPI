@@ -38,25 +38,28 @@ namespace Engine.Core.Connection
             var heart = new HeartIcon(Color.Crimson);
             var b = 1;
             var fadeOut = false;
-            while (b > 0)
+            for (int i = 0; i < 2; i++)
             {
-                foreach (var pixel in heart.Pixels)
+                while (b > 0)
                 {
-                    image.SetPixel(pixel.x, pixel.y, Color.FromArgb(0xff, b, b, b));
-                }
-
-                device.Update();
-                Thread.Sleep(10);
-                if (fadeOut)
-                {
-                    b--;
-                }
-                else
-                {
-                    b++;
-                    if (b == 150)
+                    foreach (var pixel in heart.Pixels)
                     {
-                        fadeOut = true;
+                        image.SetPixel(pixel.x, pixel.y, Color.FromArgb(0xff, b, 0, 0));
+                    }
+
+                    device.Update();
+                    Thread.Sleep(10);
+                    if (fadeOut)
+                    {
+                        b--;
+                    }
+                    else
+                    {
+                        b++;
+                        if (b == 150)
+                        {
+                            fadeOut = true;
+                        }
                     }
                 }
             }
