@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using IconsAndFonts.Icons;
 
-namespace Engine.BusinessLogic
+namespace Engine.BusinessLogic.PrintMessageLogic
 {
     public interface IMessageDrawer
     {

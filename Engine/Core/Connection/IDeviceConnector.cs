@@ -1,6 +1,6 @@
 ﻿using Iot.Device.Ws28xx;
 
-namespace Engine.Core
+namespace Engine.Core.Connection
 {
     public interface IDeviceConnector
     {

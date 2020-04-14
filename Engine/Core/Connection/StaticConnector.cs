@@ -2,7 +2,7 @@
 using System.Device.Spi;
 using Iot.Device.Ws28xx;
 
-namespace Engine.Core
+namespace Engine.Core.Connection
 {
     public class StaticConnector : IDeviceConnector
     {

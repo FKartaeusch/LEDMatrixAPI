@@ -5,7 +5,7 @@ using System.Threading;
 using IconsAndFonts.Icons;
 using Iot.Device.Ws28xx;
 
-namespace Engine.Core
+namespace Engine.Core.Connection
 {
     public class SimpleTestConnector : ITestConnector
     {

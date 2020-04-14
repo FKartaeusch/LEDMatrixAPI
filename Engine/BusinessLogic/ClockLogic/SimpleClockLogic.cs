@@ -1,6 +1,6 @@
-﻿namespace Engine.BusinessLogic
+﻿namespace Engine.BusinessLogic.ClockLogic
 {
-    public class SimpleClockLogik : IClockLogic
+    public class SimpleClockLogic : IClockLogic
     {
         public void ShowClock()
         {

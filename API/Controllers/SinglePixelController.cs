@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 using API.Models.Request;
-using Engine.BusinessLogic;
+using Engine.BusinessLogic.DrawLogic;
 using Engine.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,9 +26,8 @@ namespace API.Controllers
         private SinglePixelDTO BuildDTO(SinglePixelRequest request)
         {
             var dto = new SinglePixelDTO();
-            dto.PixelNumber = request.PixelNumber;
-            dto.ClearImage = request.ClearImage;
-            dto.Color = Color.FromArgb(request.Alpha, request.Red, request.Green, request.Blue);
+            dto.PixelLocation = new PixelLocationDTO {Row = request.Row, Col = request.Col};
+            dto.Color = Color.FromArgb(100, request.Red, request.Green, request.Blue);
             return dto;
         }
     }

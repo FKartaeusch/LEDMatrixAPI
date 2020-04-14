@@ -1,7 +1,7 @@
 ﻿using Engine.Models.DTO;
 using IconsAndFonts.Icons;
 
-namespace Engine.BusinessLogic
+namespace Engine.BusinessLogic.DrawLogic
 {
     public interface IDrawSinglePixel
     {

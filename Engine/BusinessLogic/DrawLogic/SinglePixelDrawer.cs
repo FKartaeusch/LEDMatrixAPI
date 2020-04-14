@@ -1,16 +1,19 @@
 ﻿using System;
-using Engine.Core;
+using Engine.Core.Connection;
+using Engine.DeviceUtils.LEDMatrixWS2812B;
 using Engine.Models.DTO;
 using IconsAndFonts.Icons;
 
-namespace Engine.BusinessLogic
+namespace Engine.BusinessLogic.DrawLogic
 {
     public class SinglePixelDrawer : IDrawSinglePixel
     {
         private readonly IDeviceConnector _connector;
+        private readonly IPixelPointer pixelPointer;
 
-        public SinglePixelDrawer(IDeviceConnector connector)
+        public SinglePixelDrawer(IDeviceConnector connector, IPixelPointer pointer)
         {
+            pixelPointer = pointer;
             _connector = connector;
         }
 
@@ -18,13 +21,8 @@ namespace Engine.BusinessLogic
         {
             var device = _connector.GetDevice();
             var image = device.Image;
-            if (pixelDTO.ClearImage)
-            {
-                device.Image.Clear();
-                device.Update();
-            }
 
-            image.SetPixel(pixelDTO.PixelNumber, 0, pixelDTO.Color);
+            image.SetPixel(pixelPointer.GetDevicePixel(pixelDTO.PixelLocation), 0, pixelDTO.Color);
             device.Update();
         }
 
