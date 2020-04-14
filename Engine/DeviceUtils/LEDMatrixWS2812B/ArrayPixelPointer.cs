@@ -56,7 +56,7 @@ namespace Engine.DeviceUtils.LEDMatrixWS2812B
             }
             else
             {
-                for (; index <= range.Item2; index--)
+                for (; index >= range.Item2; index--)
                 {
                     MainArray[row, col] = index;
                     col++;

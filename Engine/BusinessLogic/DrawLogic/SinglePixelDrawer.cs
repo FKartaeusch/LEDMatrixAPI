@@ -9,11 +9,11 @@ namespace Engine.BusinessLogic.DrawLogic
     public class SinglePixelDrawer : IDrawSinglePixel
     {
         private readonly IDeviceConnector _connector;
-        private readonly IPixelPointer pixelPointer;
+        private readonly IPixelPointer _pixelPointer;
 
         public SinglePixelDrawer(IDeviceConnector connector, IPixelPointer pointer)
         {
-            pixelPointer = pointer;
+            _pixelPointer = pointer;
             _connector = connector;
         }
 
@@ -22,7 +22,7 @@ namespace Engine.BusinessLogic.DrawLogic
             var device = _connector.GetDevice();
             var image = device.Image;
 
-            image.SetPixel(pixelPointer.GetDevicePixel(pixelDTO.PixelLocation), 0, pixelDTO.Color);
+            image.SetPixel(_pixelPointer.GetDevicePixel(pixelDTO.PixelLocation), 0, pixelDTO.Color);
             device.Update();
         }
 
