@@ -24,6 +24,8 @@ namespace API
             services.AddSingleton<IDeviceConnector, StaticConnector>();
             services.AddSingleton<IDrawSinglePixel, SinglePixelDrawer>();
             services.AddSingleton<ITestConnector, SimpleTestConnector>();
+            services.AddSingleton<IStateHandler, SimpleStateHandler>();
+            services.AddSingleton<IDeviceRunner, DeviceRunner>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

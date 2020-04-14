@@ -1,4 +1,5 @@
-﻿using IconsAndFonts.Animations;
+﻿using System.Drawing;
+using IconsAndFonts.Animations;
 
 namespace Engine.Models.DTO
 {
@@ -6,7 +7,7 @@ namespace Engine.Models.DTO
     {
         public AnimationStyle AnimationStyle = AnimationStyle.SIMPLE;
         public bool ClearImage = false;
-        public string Color;
+        public Color Color;
         public int PixelNumber;
     }
 }

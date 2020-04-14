@@ -8,23 +8,16 @@ namespace Engine.Core
     {
         private static Ws2812b instance;
 
-        private Ws2812b Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = CreateInstance();
-                }
-
-
-                return instance;
-            }
-        }
 
         public Ws2812b GetDevice()
         {
-            return Instance;
+            if (instance == null)
+            {
+                instance = CreateInstance();
+            }
+
+
+            return instance;
         }
 
 

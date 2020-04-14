@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using Engine.Core;
 using Engine.Models.DTO;
 using IconsAndFonts.Icons;
@@ -25,7 +24,7 @@ namespace Engine.BusinessLogic
                 device.Update();
             }
 
-            image.SetPixel(pixelDTO.PixelNumber, 0, Color.Blue);
+            image.SetPixel(pixelDTO.PixelNumber, 0, pixelDTO.Color);
             device.Update();
         }
 
