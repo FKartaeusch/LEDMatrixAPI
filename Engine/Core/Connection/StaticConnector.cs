@@ -8,17 +8,24 @@ namespace Engine.Core.Connection
     {
         private static Ws2812b instance;
 
+        private Ws2812b Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = CreateInstance();
+                }
+
+
+                return instance;
+            }
+        }
 
         public Ws2812b GetDevice()
         {
-            if (instance == null)
-            {
-                instance = CreateInstance();
-            }
-
-            return instance;
+            return Instance;
         }
-
 
         private static Ws2812b CreateInstance()
         {
