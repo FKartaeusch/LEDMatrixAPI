@@ -21,8 +21,9 @@ namespace Engine.BusinessLogic.DrawLogic
         {
             var device = _connector.GetDevice();
             var image = device.Image;
-
-            image.SetPixel(_pixelPointer.GetDevicePixel(pixelDTO.PixelLocation), 0, pixelDTO.Color);
+            var pixelAdress = _pixelPointer.GetDevicePixel(pixelDTO.PixelLocation);
+            Console.WriteLine("Adressing Pixel" + pixelAdress);
+            image.SetPixel(pixelAdress, 0, pixelDTO.Color);
             device.Update();
         }
 
