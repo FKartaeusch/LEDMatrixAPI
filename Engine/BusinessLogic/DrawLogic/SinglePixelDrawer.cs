@@ -22,8 +22,7 @@ namespace Engine.BusinessLogic.DrawLogic
         {
             var device = _connector.GetDevice();
             var image = device.Image;
-            image.Clear();
-            Thread.Sleep(500);
+            Thread.Sleep(100);
             var pixelAdress = _pixelPointer.GetDevicePixel(pixelDTO.PixelLocation);
             Console.WriteLine("Adressing Pixel " + pixelAdress);
             image.SetPixel(pixelAdress, 0, pixelDTO.Color);
