@@ -2,6 +2,9 @@
 
 namespace API.Controllers
 {
+    [
+        ApiController]
+    [Route("[controller]")]
     public class ClockController : Controller
     {
         // GET

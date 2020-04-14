@@ -6,7 +6,7 @@ namespace Engine.Core.Connection
 {
     public sealed class StaticConnector : IDeviceConnector
     {
-        private Ws2812b instance;
+        private static Ws2812b instance;
 
 
         public Ws2812b GetDevice()
@@ -15,9 +15,6 @@ namespace Engine.Core.Connection
             {
                 instance = CreateInstance();
             }
-
-            // Refresh connection?
-            instance.Update();
 
             return instance;
         }

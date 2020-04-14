@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class ResetController : Controller
     {
         private readonly IResetLogic _resetLogic;
@@ -13,6 +15,7 @@ namespace API.Controllers
         }
 
         // GET
+        [HttpGet]
         public void Reset()
         {
             _resetLogic.Reset();
