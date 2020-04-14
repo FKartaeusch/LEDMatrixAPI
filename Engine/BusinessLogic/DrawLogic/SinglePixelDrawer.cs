@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using Engine.Core.Connection;
 using Engine.DeviceUtils.LEDMatrixWS2812B;
 using Engine.Models.DTO;
@@ -22,7 +21,6 @@ namespace Engine.BusinessLogic.DrawLogic
         {
             var device = _connector.GetDevice();
             var image = device.Image;
-            Thread.Sleep(100);
             var pixelAdress = _pixelPointer.GetDevicePixel(pixelDTO.PixelLocation);
             Console.WriteLine("Adressing Pixel " + pixelAdress);
             image.SetPixel(pixelAdress, 0, pixelDTO.Color);
