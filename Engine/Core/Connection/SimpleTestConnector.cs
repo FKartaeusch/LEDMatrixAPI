@@ -40,7 +40,6 @@ namespace Engine.Core.Connection
             var fadeOut = false;
             while (b > 0)
             {
-                heart.UpdateColor(Color.FromArgb(b, Color.Crimson));
                 foreach (var pixel in heart.Pixels)
                 {
                     image.SetPixel(pixel.x, pixel.y, Color.FromArgb(0xff, b, b, b));
