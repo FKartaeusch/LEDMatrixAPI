@@ -36,10 +36,10 @@ namespace Engine.Core.Connection
             image.Clear();
 
             var heart = new HeartIcon(Color.Crimson);
-            var b = 1;
             var fadeOut = false;
-            for (int i = 0; i < 2; i++)
+            for (var i = 0; i < 2; i++)
             {
+                var b = 1;
                 while (b > 0)
                 {
                     foreach (var pixel in heart.Pixels)
@@ -62,13 +62,13 @@ namespace Engine.Core.Connection
                         }
                     }
                 }
-                Thread.Sleep(500);
+
+                Thread.Sleep(200);
                 fadeOut = false;
             }
 
             image.Clear();
             device.Update();
-            
         }
     }
 }
