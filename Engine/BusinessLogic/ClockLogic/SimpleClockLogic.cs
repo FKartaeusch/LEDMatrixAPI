@@ -35,16 +35,17 @@ namespace Engine.BusinessLogic.ClockLogic
         {
             var font = new PixelFont(new TryOutLetters(), new TryOutNumbers(color), new TryOutSpecialSigns(color));
             var cultureInfo = CultureInfo.CreateSpecificCulture("de-DE");
-            var oldTime = string.Empty;
+            var oldTimeMinute = -1;
             while (true)
             {
-                var time = DateTime.Now.ToString("t", cultureInfo);
-                if (time.Equals(oldTime))
+                if (oldTimeMinute != -1 && DateTime.Now.Minute == oldTimeMinute)
                 {
-                    Thread.Sleep(5000);
+                    Thread.Sleep(2000);
                     continue;
                 }
 
+                oldTimeMinute = DateTime.Now.Minute;
+                var time = DateTime.Now.ToString("t", cultureInfo);
                 if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
                 {
                     break;
