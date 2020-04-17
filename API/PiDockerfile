@@ -1,23 +1,14 @@
 ﻿#Will only build on raspberry pi
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-bionic-arm32v7 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster-slim-arm32v7 AS build
 
 WORKDIR /app
 
 COPY . ./
 RUN dotnet publish API/API.csproj -c Release -o out -r linux-arm
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-bionic-arm32v7
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim-arm32v7
 WORKDIR /app
 
 COPY --from=build /app/out . 
-# Install base packages
-RUN apk update
-RUN apk upgrade
-RUN apk add ca-certificates && update-ca-certificates
-# Change TimeZone
-RUN apk add --update tzdata
-ENV TZ=America/Bahia
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
 ENTRYPOINT ["dotnet", "API.dll"]
 
