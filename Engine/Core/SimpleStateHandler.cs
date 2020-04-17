@@ -10,7 +10,7 @@ namespace Engine.Core
 {
     public class SimpleStateHandler : IStateHandler
     {
-        private static State currentState;
+        private static State _currentState;
         private readonly IClockLogic _clockLogic;
         private readonly ITestConnector _testConnector;
         private readonly IThreadHandler _threadHandler;
@@ -25,16 +25,17 @@ namespace Engine.Core
 
         public State GetCurrentState()
         {
-            if (currentState == null)
+            if (_currentState == null)
             {
-                currentState = CreateState();
+                _currentState = CreateState();
             }
 
-            return currentState;
+            return _currentState;
         }
 
         public void SetState(StateDTO dto)
         {
+            var currentState = GetCurrentState();
             currentState.StateCode = dto.StateCode;
             currentState.Time = dto.Time;
             currentState.NextState = dto.NextState;
