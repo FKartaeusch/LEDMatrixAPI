@@ -13,6 +13,4 @@ COPY --from=build /app/out .
 
 ENTRYPOINT ["dotnet", "API.dll"]
 
-WORKDIR /app
-ADD TimeZones.sh /TimeZones.sh
-RUN /TimeZones.sh
+RUN apk add --no-cache tzdata
