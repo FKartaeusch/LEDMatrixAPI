@@ -110,6 +110,7 @@ namespace Engine.BusinessLogic.ClockLogic
                         Row = pixel.Row + spaceTopRows
                     }
                 });
+                Thread.Sleep(100);
             }
         }
 
