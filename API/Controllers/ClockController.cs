@@ -1,4 +1,5 @@
 ﻿using Engine.Core;
+using Engine.Core.Threading;
 using Engine.Models;
 using Engine.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -10,9 +11,11 @@ namespace API.Controllers
     public class ClockController : Controller
     {
         private readonly IStateHandler _stateHandler;
+        private readonly IThreadHandler _threadHandler;
 
-        public ClockController(IStateHandler stateHandler)
+        public ClockController(IStateHandler stateHandler, IThreadHandler threadHandler)
         {
+            _threadHandler = threadHandler;
             _stateHandler = stateHandler;
         }
 
@@ -26,6 +29,7 @@ namespace API.Controllers
                 StateCode = StateCode.ShowClock,
                 NextState = StateCode.ShowClock
             });
+            _threadHandler.StartThread();
         }
     }
 }
