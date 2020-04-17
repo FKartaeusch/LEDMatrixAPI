@@ -81,8 +81,8 @@ namespace Engine.BusinessLogic.ClockLogic
                     Color = pixel.Color,
                     PixelLocation = new PixelLocationDTO
                     {
-                        Col = pixel.Col,
-                        Row = pixel.Row
+                        Col = pixel.Col + colSpaceLeft,
+                        Row = pixel.Row + spaceTopRows
                     }
                 });
             }
