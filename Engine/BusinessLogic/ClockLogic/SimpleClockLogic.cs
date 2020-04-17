@@ -36,6 +36,7 @@ namespace Engine.BusinessLogic.ClockLogic
             var font = new PixelFont(new TryOutLetters(), new TryOutNumbers(color), new TryOutSpecialSigns(color));
             var cultureInfo = CultureInfo.CreateSpecificCulture("de-DE");
             var oldTimeMinute = -1;
+
             while (true)
             {
                 if (oldTimeMinute != -1 && DateTime.Now.Minute == oldTimeMinute)
@@ -45,7 +46,8 @@ namespace Engine.BusinessLogic.ClockLogic
                 }
 
                 oldTimeMinute = DateTime.Now.Minute;
-                var time = DateTime.Now.ToString("t", cultureInfo);
+
+                var time = GetLocalDateTime().ToString("t", cultureInfo);
                 if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
                 {
                     break;
@@ -61,6 +63,19 @@ namespace Engine.BusinessLogic.ClockLogic
 
                 Thread.Sleep(1000);
             }
+        }
+
+        private DateTime GetLocalDateTime()
+        {
+            var timeZoneID = "Europe/Berlin";
+            var utcTime = DateTime.Now.ToUniversalTime();
+            Console.WriteLine("UTC: " + utcTime);
+            var timeInfo = TimeZoneInfo.FindSystemTimeZoneById(timeZoneID);
+
+            var localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, timeInfo);
+            Console.WriteLine("local: " + localTime);
+
+            return localTime;
         }
 
         private int GetColSpace(int i)
