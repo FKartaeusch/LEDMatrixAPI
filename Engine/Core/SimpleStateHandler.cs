@@ -62,7 +62,7 @@ namespace Engine.Core
         {
             if (stateCode == StateCode.ShowClock)
             {
-                return delegate { _clockLogic.ShowClock(Color.FromArgb(0xff, 50, 50, 50)); };
+                return delegate { _clockLogic.ShowClock(Color.FromArgb(0xff, 30, 30, 30)); };
             }
 
             if (stateCode == StateCode.TestConnection)

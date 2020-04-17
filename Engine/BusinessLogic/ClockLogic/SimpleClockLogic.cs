@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Threading;
 using Engine.BusinessLogic.DrawLogic;
+using Engine.Core;
+using Engine.Models;
 using Engine.Models.DTO;
 using IconsAndFonts.Fonts;
 using IconsAndFonts.Fonts.TryOutFont;
@@ -18,10 +20,12 @@ namespace Engine.BusinessLogic.ClockLogic
         private const int MinuteCol1 = 19;
         private const int MinuteCol2 = 23;
         private readonly IDrawSinglePixel _drawer;
+        private readonly IStateHandler _stateHandler;
 
-        public SimpleClockLogic(IDrawSinglePixel drawer)
+        public SimpleClockLogic(IDrawSinglePixel drawer, IStateHandler stateHandler)
         {
             _drawer = drawer;
+            _stateHandler = stateHandler;
         }
 
         public void ShowClock(Color color)
@@ -31,6 +35,12 @@ namespace Engine.BusinessLogic.ClockLogic
             while (true)
             {
                 var time = DateTime.Now.ToString("t", cultureInfo);
+
+                if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
+                {
+                    break;
+                }
+
                 Console.WriteLine(time);
                 for (var i = 0; time.Length > i; i++)
                 {
@@ -38,7 +48,7 @@ namespace Engine.BusinessLogic.ClockLogic
                     PrintPixelFont(MapStringToPixel(font, time[i].ToString()), spaceTop, spaceLeft);
                 }
 
-                Thread.Sleep(60000);
+                Thread.Sleep(1000);
             }
         }
 

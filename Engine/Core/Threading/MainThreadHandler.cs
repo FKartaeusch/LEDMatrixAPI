@@ -11,7 +11,7 @@ namespace Engine.Core.Threading
         {
             if (_currentThread != null && _currentThread.IsAlive)
             {
-                _currentThread.Abort();
+                //_currentThread.Abort();
             }
 
             var start = new ThreadStart(function);

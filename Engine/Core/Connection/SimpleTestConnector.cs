@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Threading;
+using Engine.Models;
 using IconsAndFonts.Icons;
 using Iot.Device.Ws28xx;
 
@@ -9,9 +10,11 @@ namespace Engine.Core.Connection
     public class SimpleTestConnector : ITestConnector
     {
         private readonly IDeviceConnector _connector;
+        private readonly IStateHandler _stateHandler;
 
-        public SimpleTestConnector(IDeviceConnector connector)
+        public SimpleTestConnector(IDeviceConnector connector, IStateHandler stateHandler)
         {
+            _stateHandler = stateHandler;
             _connector = connector;
         }
 
@@ -37,6 +40,11 @@ namespace Engine.Core.Connection
             var fadeOut = false;
             while (true)
             {
+                if (_stateHandler.GetCurrentState().StateCode != StateCode.TestConnection)
+                {
+                    break;
+                }
+
                 var b = 1;
                 while (b > 0)
                 {
