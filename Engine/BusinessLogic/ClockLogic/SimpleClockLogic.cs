@@ -47,7 +47,7 @@ namespace Engine.BusinessLogic.ClockLogic
 
                 oldTimeMinute = DateTime.Now.Minute;
 
-                var time = DateTime.Now.ToString("t", cultureInfo); //GetLocalDateTime().ToString("t", cultureInfo);
+                var time = GetLocalDateTime().ToString("t", cultureInfo);
                 if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
                 {
                     break;
@@ -71,7 +71,6 @@ namespace Engine.BusinessLogic.ClockLogic
             var utcTime = DateTime.Now.ToUniversalTime();
             Console.WriteLine("UTC: " + utcTime);
             var timeInfo = TimeZoneInfo.FindSystemTimeZoneById(timeZoneID);
-
             var localTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, timeInfo);
             Console.WriteLine("local: " + localTime);
 
