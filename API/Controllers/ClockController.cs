@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [
-        ApiController]
+    [ApiController]
     [Route("[controller]")]
     public class ClockController : Controller
     {
@@ -24,7 +23,7 @@ namespace API.Controllers
             _stateHandler.SetState(new StateDTO
             {
                 Time = 10,
-                StateCode = StateCode.TestConnection,
+                StateCode = StateCode.ShowClock,
                 NextState = StateCode.ShowClock
             });
         }
