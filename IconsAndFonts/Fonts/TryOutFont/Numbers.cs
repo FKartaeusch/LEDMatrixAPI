@@ -51,14 +51,14 @@ namespace IconsAndFonts.Fonts.TryOutFont
                 });
                 pixels.Add(new FontPixelInformation
                 {
-                    Row = 3,
-                    Col = 2,
+                    Row = 2,
+                    Col = 3,
                     Color = color
                 });
                 pixels.Add(new FontPixelInformation
                 {
-                    Row = 3,
-                    Col = 1,
+                    Row = 1,
+                    Col = 3,
                     Color = color
                 });
                 pixels.Add(new FontPixelInformation

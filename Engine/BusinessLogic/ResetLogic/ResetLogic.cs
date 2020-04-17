@@ -1,7 +1,5 @@
 ﻿using Engine.Core;
 using Engine.Core.Connection;
-using Engine.Models;
-using Engine.Models.DTO;
 
 namespace Engine.BusinessLogic.ResetLogic
 {
@@ -18,11 +16,6 @@ namespace Engine.BusinessLogic.ResetLogic
 
         public void Reset()
         {
-            _stateHandler.SetState(new StateDTO
-            {
-                Time = 10,
-                StateCode = StateCode.ShowClock
-            });
             var device = _connector.GetDevice();
             device.Image.Clear();
             device.Update();

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Threading;
 using Engine.BusinessLogic.DrawLogic;
+using Engine.BusinessLogic.ResetLogic;
 using Engine.Core;
 using Engine.Models;
 using Engine.Models.DTO;
@@ -14,27 +15,37 @@ namespace Engine.BusinessLogic.ClockLogic
     public class SimpleClockLogic : IClockLogic
     {
         private const int TopRowSpace = 2;
-        private const int HourCol1 = 8;
-        private const int HourCol2 = 13;
-        private const int ColonCol = 17;
-        private const int MinuteCol1 = 19;
-        private const int MinuteCol2 = 23;
+        private const int HourCol1 = 5;
+        private const int HourCol2 = HourCol1 + 5;
+        private const int ColonCol = HourCol2 + 5;
+        private const int MinuteCol1 = ColonCol + 2;
+        private const int MinuteCol2 = MinuteCol1 + 5;
         private readonly IDrawSinglePixel _drawer;
+        private readonly IResetLogic _resetLogic;
         private readonly IStateHandler _stateHandler;
 
-        public SimpleClockLogic(IDrawSinglePixel drawer, IStateHandler stateHandler)
+        public SimpleClockLogic(IDrawSinglePixel drawer, IStateHandler stateHandler, IResetLogic resetLogic)
         {
             _drawer = drawer;
             _stateHandler = stateHandler;
+            _resetLogic = resetLogic;
         }
 
         public void ShowClock(Color color)
         {
             var font = new PixelFont(new TryOutLetters(), new TryOutNumbers(color), new TryOutSpecialSigns(color));
             var cultureInfo = CultureInfo.CreateSpecificCulture("de-DE");
+            var oldTime = string.Empty;
             while (true)
             {
                 var time = DateTime.Now.ToString("t", cultureInfo);
+                if (time.Equals(oldTime))
+                {
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
+                _resetLogic.Reset();
 
                 if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
                 {
@@ -80,6 +91,10 @@ namespace Engine.BusinessLogic.ClockLogic
             }
 
             return 0;
+        }
+
+        private void RemoveOldPixels()
+        {
         }
 
         private void PrintPixelFont(BaseFont symbolToPrint, int spaceTopRows, int colSpaceLeft)
