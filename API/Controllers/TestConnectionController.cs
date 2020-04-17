@@ -1,4 +1,6 @@
-﻿using Engine.Core.Connection;
+﻿using Engine.Core;
+using Engine.Models;
+using Engine.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -7,17 +9,22 @@ namespace API.Controllers
     [Route("[controller]")]
     public class TestConnectionController : Controller
     {
-        private readonly ITestConnector _testConnector;
+        private readonly IStateHandler _stateHandler;
 
-        public TestConnectionController(ITestConnector testConnector)
+        public TestConnectionController(IStateHandler stateHandler)
         {
-            _testConnector = testConnector;
+            _stateHandler = stateHandler;
         }
 
         [HttpGet]
         public void TestConnection()
         {
-            _testConnector.TestConnection();
+            _stateHandler.SetState(new StateDTO
+            {
+                Time = 10,
+                StateCode = StateCode.TestConnection,
+                NextState = StateCode.ShowClock
+            });
         }
     }
 }

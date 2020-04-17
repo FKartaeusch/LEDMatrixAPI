@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Device.Spi;
 using System.Drawing;
 using System.Threading;
 using IconsAndFonts.Icons;
@@ -9,19 +8,18 @@ namespace Engine.Core.Connection
 {
     public class SimpleTestConnector : ITestConnector
     {
+        private readonly IDeviceConnector _connector;
+
+        public SimpleTestConnector(IDeviceConnector connector)
+        {
+            _connector = connector;
+        }
+
         public void TestConnection()
         {
             try
             {
-                var count = 256; // number of LEDs
-                var settings = new SpiConnectionSettings(0, 0)
-                {
-                    ClockFrequency = 2_400_000, Mode = SpiMode.Mode0, DataBitLength = 8
-                };
-
-                var spi = SpiDevice.Create(settings);
-                var device = new Ws2812b(spi, count);
-                DrawTest(device);
+                DrawTest(_connector.GetDevice());
             }
             catch (Exception ex)
             {
@@ -37,7 +35,7 @@ namespace Engine.Core.Connection
 
             var heart = new HeartIcon(Color.Crimson);
             var fadeOut = false;
-            for (var i = 0; i < 2; i++)
+            while (true)
             {
                 var b = 1;
                 while (b > 0)
@@ -66,9 +64,6 @@ namespace Engine.Core.Connection
                 Thread.Sleep(200);
                 fadeOut = false;
             }
-
-            image.Clear();
-            device.Update();
         }
     }
 }

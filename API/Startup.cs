@@ -1,7 +1,9 @@
+using Engine.BusinessLogic.ClockLogic;
 using Engine.BusinessLogic.DrawLogic;
 using Engine.BusinessLogic.ResetLogic;
 using Engine.Core;
 using Engine.Core.Connection;
+using Engine.Core.Threading;
 using Engine.DeviceUtils.LEDMatrixWS2812B;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,8 @@ namespace API
             services.AddSingleton<IDeviceRunner, DeviceRunner>();
             services.AddSingleton<IResetLogic, ResetLogic>();
             services.AddSingleton<IPixelPointer, ArrayPixelPointer>();
+            services.AddSingleton<IThreadHandler, MainThreadHandler>();
+            services.AddSingleton<IClockLogic, SimpleClockLogic>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
