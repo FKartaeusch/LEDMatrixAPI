@@ -41,17 +41,16 @@ namespace Engine.BusinessLogic.ClockLogic
                 var time = DateTime.Now.ToString("t", cultureInfo);
                 if (time.Equals(oldTime))
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(5000);
                     continue;
                 }
-
-                _resetLogic.Reset();
 
                 if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
                 {
                     break;
                 }
 
+                _resetLogic.Reset();
                 Console.WriteLine(time);
                 for (var i = 0; time.Length > i; i++)
                 {
