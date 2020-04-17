@@ -18,6 +18,7 @@ namespace API.Controllers
         }
 
         // GET
+        [HttpGet]
         public void ShowClock()
         {
             _stateHandler.SetState(new StateDTO
