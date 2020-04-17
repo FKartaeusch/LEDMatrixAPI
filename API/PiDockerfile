@@ -12,3 +12,7 @@ WORKDIR /app
 COPY --from=build /app/out . 
 
 ENTRYPOINT ["dotnet", "API.dll"]
+
+WORKDIR /app
+ADD TimeZones.sh /TimeZones.sh
+RUN /TimeZones.sh
