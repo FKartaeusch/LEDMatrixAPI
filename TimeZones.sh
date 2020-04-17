@@ -1,7 +1,7 @@
 export DEBIAN_FRONTEND=noninteractive
 #install tzdata package
-apt-get update
-apt-get install tzdata -y
+sudo apt-get update
+sudo apt-get install tzdata -y
 
-ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
+sudo ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+sudo dpkg-reconfigure --frontend noninteractive tzdata
