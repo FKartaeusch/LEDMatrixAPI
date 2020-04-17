@@ -47,7 +47,7 @@ namespace Engine.BusinessLogic.ClockLogic
 
                 oldTimeMinute = DateTime.Now.Minute;
 
-                var time = GetLocalDateTime().ToString("t", cultureInfo);
+                var time = DateTime.Now.ToString("t", cultureInfo); //GetLocalDateTime().ToString("t", cultureInfo);
                 if (_stateHandler.GetCurrentState().StateCode != StateCode.ShowClock)
                 {
                     break;

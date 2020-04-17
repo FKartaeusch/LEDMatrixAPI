@@ -37,6 +37,13 @@ namespace API.Controllers
             return time;
         }
 
+        [HttpGet]
+        [Route("CheckDateTimeEnv")]
+        public string CheckDateTimeEnv()
+        {
+            return DateTime.Now.ToString("t", CultureInfo.CreateSpecificCulture("de-DE"));
+        }
+
         private DateTime GetLocalDateTime()
         {
             var timeZoneID = "Europe/Berlin";
