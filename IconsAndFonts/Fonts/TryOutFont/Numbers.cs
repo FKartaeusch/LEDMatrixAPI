@@ -94,28 +94,46 @@ namespace IconsAndFonts.Fonts.TryOutFont
             {
                 pixels.Add(new FontPixelInformation
                 {
-                    Row = 0,
-                    Col = 2,
+                    Row = 1,
+                    Col = 0,
                     Color = color
                 });
 
+                pixels.Add(new FontPixelInformation
+                {
+                    Row = 4,
+                    Col = 0,
+                    Color = color
+                });
+
+                pixels.Add(new FontPixelInformation
+                {
+                    Row = 0,
+                    Col = 1,
+                    Color = color
+                });
                 pixels.Add(new FontPixelInformation
                 {
                     Row = 1,
-                    Col = 2,
+                    Col = 1,
                     Color = color
                 });
-
                 pixels.Add(new FontPixelInformation
                 {
                     Row = 2,
-                    Col = 2,
+                    Col = 1,
                     Color = color
                 });
                 pixels.Add(new FontPixelInformation
                 {
                     Row = 3,
-                    Col = 2,
+                    Col = 1,
+                    Color = color
+                });
+                pixels.Add(new FontPixelInformation
+                {
+                    Row = 4,
+                    Col = 1,
                     Color = color
                 });
                 pixels.Add(new FontPixelInformation
@@ -298,8 +316,8 @@ namespace IconsAndFonts.Fonts.TryOutFont
                 });
                 pixels.Add(new FontPixelInformation
                 {
-                    Row = 3,
-                    Col = 0,
+                    Row = 0,
+                    Col = 2,
                     Color = color
                 });
                 pixels.Add(new FontPixelInformation
@@ -310,7 +328,7 @@ namespace IconsAndFonts.Fonts.TryOutFont
                 });
                 pixels.Add(new FontPixelInformation
                 {
-                    Row = 3,
+                    Row = 2,
                     Col = 1,
                     Color = color
                 });
