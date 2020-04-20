@@ -316,6 +316,12 @@ namespace IconsAndFonts.Fonts.TryOutFont
                 });
                 pixels.Add(new FontPixelInformation
                 {
+                    Row = 1,
+                    Col = 2,
+                    Color = color
+                });
+                pixels.Add(new FontPixelInformation
+                {
                     Row = 0,
                     Col = 2,
                     Color = color
