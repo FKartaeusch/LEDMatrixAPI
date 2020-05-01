@@ -35,6 +35,7 @@ namespace API
             services.AddSingleton<IPixelPointer, ArrayPixelPointer>();
             services.AddSingleton<IThreadHandler, MainThreadHandler>();
             services.AddSingleton<IClockLogic, SimpleClockLogic>();
+            services.AddSingleton<ICancelHandler, TaskCancelHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

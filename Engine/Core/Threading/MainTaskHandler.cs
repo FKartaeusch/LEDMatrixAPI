@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Threading;
 using System.Threading.Tasks;
 using Engine.BusinessLogic.ClockLogic;
 using Engine.Core.Connection;
@@ -11,16 +10,18 @@ namespace Engine.Core.Threading
     public class MainTaskHandler : IThreadHandler
     {
         private static Task _currentTask;
-        private static CancellationTokenSource _cancellationSource;
+        private readonly ICancelHandler _cancelHandler;
         private readonly IClockLogic _clockLogic;
         private readonly IStateHandler _stateHandler;
         private readonly ITestConnector _testConnector;
 
-        public MainTaskHandler(IClockLogic clockLogic, ITestConnector testConnector, IStateHandler stateHandler)
+        public MainTaskHandler(IClockLogic clockLogic, ITestConnector testConnector, IStateHandler stateHandler,
+            ICancelHandler cancelHandler)
         {
             _stateHandler = stateHandler;
             _clockLogic = clockLogic;
             _testConnector = testConnector;
+            _cancelHandler = cancelHandler;
         }
 
         public void StartThread()
@@ -28,8 +29,8 @@ namespace Engine.Core.Threading
             var currentState = _stateHandler.GetCurrentState();
             var action = StateActionMapper(currentState.StateCode);
             var currentTask = GetCurrentTask(action);
+
             currentTask.Start();
-            throw new NotImplementedException();
         }
 
         public void StopThread()
@@ -41,7 +42,7 @@ namespace Engine.Core.Threading
         {
             if (_currentTask != null && _currentTask.Status == TaskStatus.Running)
             {
-                _cancellationSource.Cancel();
+                _cancelHandler.Cancel();
             }
 
             _currentTask = new Task(action);
